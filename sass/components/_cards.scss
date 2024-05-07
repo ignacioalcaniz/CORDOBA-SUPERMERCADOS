@@ -1,0 +1,37 @@
+.card{
+background-color:whitesmoke;
+height:25rem;
+padding: auto;
+gap: .125rem;
+border: 2px solid black;
+
+
+&:hover{
+    animation-name: card;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+h5{
+    height: 10%;
+}
+img{
+    height: 75%;
+    border-radius: .3125rem;
+}
+a{
+    height: 11%;
+    width: 50%;
+    margin: auto;
+    background-color: red;
+    border: 1px solid black;
+    img{
+        width: 30%;
+        height: 100%;
+        padding: auto;
+       
+    }
+}
+
+
+}

@@ -1,0 +1,15 @@
+@import "./utilities/maps";
+@import "./utilities/mixins";
+@import "./utilities/keyframes";
+
+@import "./base/generales";
+@import "./base/resets";
+@import "./base/tipografia";
+
+@import "./layouts/header";
+@import "./layouts/main";
+@import "./layouts/footer";
+
+@import "./components/navbar";
+@import "./components/carrusel";
+@import "./components/cards";
