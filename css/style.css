@@ -1,6 +1,7 @@
 @keyframes card {
   0% {
     transform: scale(1.1);
+    box-shadow: 20px 20px 20px black;
   }
 }
 body {
@@ -28,6 +29,7 @@ main {
   border: 2px solid black;
   border-radius: 0.625rem;
   margin-top: 0.9375rem;
+  background-color: whitesmoke;
 }
 
 footer {
@@ -41,6 +43,7 @@ nav {
   border-radius: 0.625rem;
   position: sticky;
   border: 2px solid black;
+  position: sticky;
 }
 
 .carousel {
@@ -76,11 +79,15 @@ nav {
   animation-iteration-count: infinite;
 }
 .card h5 {
-  height: 10%;
+  height: 7%;
 }
 .card img {
-  height: 75%;
+  height: 70%;
   border-radius: 0.3125rem;
+}
+.card p {
+  height: 5%;
+  text-align: center;
 }
 .card a {
   height: 11%;
