@@ -1,12 +1,16 @@
 main{
    gap: 1.25rem;
+   .tituloDos{
+      border:2px solid red;
+   }
+   .field{
+      width: 50%;
+      margin: auto;
+      border: 2px solid red;
+      border-radius: .625rem;
+      margin-top: .9375rem;
+      background-color: whitesmoke;
+   
+   }
 }
-.field{
-   width: 50%;
-   margin: auto;
-   border: 2px solid black;
-   border-radius: .625rem;
-   margin-top: .9375rem;
-   background-color: whitesmoke;
 
-}

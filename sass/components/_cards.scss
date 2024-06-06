@@ -1,9 +1,9 @@
 .card {
     background-color: whitesmoke;
-    height: 25rem;
+    height: 31.25rem;
     padding: auto;
     gap: .125rem;
-    border: 2px solid black;
+    border: 2px solid white;
 
 
     &:hover {
@@ -14,25 +14,30 @@
     }
 
     h5 {
-        height: 7%;
+        height: 6%;
     }
 
     img {
-        height: 70%;
+        height: 68%;
         border-radius: .3125rem;
     }
-    p{
-height: 5%;
-text-align: center;
+
+    p {
+        height: 4%;
+        text-align: center;
+    }
+    p{height: 2%;
+        text-align: center;
+
     }
 
     a {
         height: 11%;
         width: 50%;
         margin: auto;
-        background-color: red;
+        background-color: white;
         border: 1px solid black;
-      
+
 
         img {
             width: 30%;

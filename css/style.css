@@ -1,7 +1,7 @@
 @keyframes card {
   0% {
     transform: scale(1.1);
-    box-shadow: 20px 20px 20px black;
+    box-shadow: 20px 20px red;
   }
 }
 body {
@@ -19,21 +19,44 @@ header {
   gap: 1.25rem;
 }
 
+#titulo {
+  color: red;
+}
+
 main {
   gap: 1.25rem;
 }
-
-.field {
+main .tituloDos {
+  border: 2px solid red;
+}
+main .field {
   width: 50%;
   margin: auto;
-  border: 2px solid black;
+  border: 2px solid red;
   border-radius: 0.625rem;
   margin-top: 0.9375rem;
   background-color: whitesmoke;
 }
 
 footer {
-  background-color: whitesmoke;
+  background-color: red;
+  border-top: 2px solid white;
+}
+footer ul li {
+  list-style: none;
+}
+footer ul li img {
+  width: 2.5rem;
+}
+footer ul li img:hover {
+  transform: scale(1.3);
+}
+footer .redes a img {
+  width: 2.5rem;
+}
+footer .redes a img:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(10px 10px black);
 }
 
 nav {
@@ -42,7 +65,7 @@ nav {
   margin: auto;
   border-radius: 0.625rem;
   position: sticky;
-  border: 2px solid black;
+  border: 2px solid red;
   position: sticky;
 }
 
@@ -54,7 +77,7 @@ nav {
   width: 100%;
   height: 100%;
   border-radius: 0.625rem;
-  border: 2px solid black;
+  border: 2px solid white;
 }
 .carousel .carousel-inner .carousel-item {
   width: 100%;
@@ -67,10 +90,10 @@ nav {
 
 .card {
   background-color: whitesmoke;
-  height: 25rem;
+  height: 31.25rem;
   padding: auto;
   gap: 0.125rem;
-  border: 2px solid black;
+  border: 2px solid white;
 }
 .card:hover {
   animation-name: card;
@@ -79,21 +102,25 @@ nav {
   animation-iteration-count: infinite;
 }
 .card h5 {
-  height: 7%;
+  height: 6%;
 }
 .card img {
-  height: 70%;
+  height: 68%;
   border-radius: 0.3125rem;
 }
 .card p {
-  height: 5%;
+  height: 4%;
+  text-align: center;
+}
+.card p {
+  height: 2%;
   text-align: center;
 }
 .card a {
   height: 11%;
   width: 50%;
   margin: auto;
-  background-color: red;
+  background-color: white;
   border: 1px solid black;
 }
 .card a img {
