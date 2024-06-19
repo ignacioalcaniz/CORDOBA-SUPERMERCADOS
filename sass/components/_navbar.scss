@@ -5,7 +5,22 @@ nav{
   border-radius: .625rem;
   position: sticky;
   border: 2px solid red;
-  position: sticky;
+  font-family: "Libre Bodoni", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  color: black;
+  &:hover{
+    box-shadow:10px 10px  red;
+  }
+ 
+ .carrito{
+  a{
+    width: 20%;
+    margin: auto;
+   
+  }
+ }
  
 
  

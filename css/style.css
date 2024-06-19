@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap");
 @keyframes card {
   0% {
     transform: scale(1.1);
@@ -18,9 +19,12 @@ body {
 header {
   gap: 1.25rem;
 }
-
-#titulo {
+header #titulo {
   color: red;
+  font-size: 2, 5rem;
+}
+header #titulo:hover {
+  text-shadow: 3px 3px 3px red;
 }
 
 main {
@@ -36,6 +40,15 @@ main .field {
   border-radius: 0.625rem;
   margin-top: 0.9375rem;
   background-color: whitesmoke;
+}
+main #OfertaBebida:hover {
+  box-shadow: 10px 10px red;
+}
+main #OfertaAlmacen:hover {
+  box-shadow: 10px 10px red;
+}
+main #OfertaLimpieza:hover {
+  box-shadow: 10px 10px red;
 }
 
 footer {
@@ -66,7 +79,18 @@ nav {
   border-radius: 0.625rem;
   position: sticky;
   border: 2px solid red;
-  position: sticky;
+  font-family: "Libre Bodoni", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  color: black;
+}
+nav:hover {
+  box-shadow: 10px 10px red;
+}
+nav .carrito a {
+  width: 20%;
+  margin: auto;
 }
 
 .carousel {
@@ -90,7 +114,7 @@ nav {
 
 .card {
   background-color: whitesmoke;
-  height: 31.25rem;
+  height: 450px;
   padding: auto;
   gap: 0.125rem;
   border: 2px solid white;
@@ -105,7 +129,7 @@ nav {
   height: 6%;
 }
 .card img {
-  height: 68%;
+  height: 65%;
   border-radius: 0.3125rem;
 }
 .card p {

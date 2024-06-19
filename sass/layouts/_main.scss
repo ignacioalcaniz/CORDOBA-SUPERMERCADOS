@@ -12,5 +12,23 @@ main{
       background-color: whitesmoke;
    
    }
+   #OfertaBebida{
+      &:hover{
+         box-shadow: 10px 10px  red;
+   
+      }
+   }
+   #OfertaAlmacen{
+      &:hover{
+         box-shadow: 10px 10px  red;
+   
+      }
+   }
+   #OfertaLimpieza{
+      &:hover{
+         box-shadow: 10px 10px  red;
+   
+      }
+   }
 }
 

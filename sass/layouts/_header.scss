@@ -1,7 +1,12 @@
 header{
     gap: 1.25rem;
-   
-}
-#titulo{
-    color: red;
+    #titulo {
+        color: red;
+        font-size: 2,5rem; 
+
+        &:hover {
+            text-shadow: 3px 3px 3px red; 
+         
+        }
+    }
 }
