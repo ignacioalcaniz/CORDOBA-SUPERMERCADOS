@@ -34,88 +34,149 @@ sectionMain.style.margin = `10px`
 const ofertasAlmacenadas = [];
 
 for (let i = 0; i < localStorage.length; i++) {
-    const clave = localStorage.key(i);
-    if (clave.startsWith("oferta-")) {
-        const oferta = JSON.parse(localStorage.getItem(clave));
-        ofertasAlmacenadas.push(oferta);
-    }
+  const clave = localStorage.key(i);
+  if (clave.startsWith("oferta-")) {
+    const oferta = JSON.parse(localStorage.getItem(clave));
+    ofertasAlmacenadas.push(oferta);
+  }
 }
 
 for (const oferta of ofertasAlmacenadas) {
-    let parrafo = document.createElement("p")
-    parrafo.innerText = `ID:${oferta.id}|OFERTA:${oferta.oferta}|SUPERMERCADO:${oferta.supermercado}|PRECIO:$${oferta.precio}|CANTIDAD:${oferta.cantidad}`;
-    parrafo.style.border = `2px solid black`;
-    parrafo.style.borderRadius = ".625rem";
-    parrafo.style.padding = `8px`
-    parrafo.style.marginLeft = `10px`
-    parrafo.style.marginRight = `10px`
-    let botonEliminar = document.createElement("button");
-    botonEliminar.innerText = `eliminar`;
-    botonEliminar.style.backgroundColor = `red`
-    botonEliminar.style.borderRadius = ".625rem";
-    botonEliminar.style.marginLeft = `30px`
-    botonEliminar.onclick = () => {
-        botonEliminar.style.display = "none";
-        let inputCantidad = document.createElement("input");
-        inputCantidad.setAttribute("type", "number");
-        inputCantidad.setAttribute("placeholder", "Ingrese cantidad a eliminar");
-        inputCantidad.style.margin = `10px`
-        inputCantidad.style.width = `18%`
-        let confirmarBoton = document.createElement("button");
-        confirmarBoton.innerText = "Confirmar ";
-        confirmarBoton.style.borderRadius = ".625rem";
-        confirmarBoton.style.backgroundColor = `red`
-        parrafo.appendChild(inputCantidad);
-        parrafo.appendChild(confirmarBoton)
-        confirmarBoton.onclick = () => {
-            let cantidad = parseInt(inputCantidad.value);
-            if (cantidad < oferta.cantidad) {
-                let precioPorUnidad = oferta.precio / oferta.cantidad
-                oferta.cantidad -= cantidad;
-                oferta.precio = oferta.cantidad * precioPorUnidad;
-                parrafo.innerText = `ID:${oferta.id}|OFERTA:${oferta.oferta}|SUPERMERCADO:${oferta.supermercado}|PRECIO:$${oferta.precio}|CANTIDAD:${oferta.cantidad}`;
-                localStorage.setItem(`oferta-${oferta.id}`, JSON.stringify(oferta));
+  let parrafo = document.createElement("p")
+  parrafo.innerText = `ID:${oferta.id}|OFERTA:${oferta.oferta}|SUPERMERCADO:${oferta.supermercado}|PRECIO:$${oferta.precio}|CANTIDAD:${oferta.cantidad}`;
+  parrafo.style.border = `2px solid black`;
+  parrafo.style.borderRadius = ".625rem";
+  parrafo.style.padding = `8px`
+  parrafo.style.marginLeft = `10px`
+  parrafo.style.marginRight = `10px`
+  let botonEliminar = document.createElement("button");
+  botonEliminar.innerText = `eliminar`;
+  botonEliminar.style.backgroundColor = `red`
+  botonEliminar.style.borderRadius = ".625rem";
+  botonEliminar.style.marginLeft = `30px`
+  botonEliminar.onclick = () => {
+    botonEliminar.style.display = "none";
+    let inputCantidad = document.createElement("input");
+    inputCantidad.setAttribute("type", "number");
+    inputCantidad.setAttribute("placeholder", "Ingrese cantidad a eliminar");
+    inputCantidad.style.margin = `10px`
+    inputCantidad.style.width = `19%`
+    let confirmarBoton = document.createElement("button");
+    confirmarBoton.innerText = "Confirmar ";
+    confirmarBoton.style.borderRadius = ".625rem";
+    confirmarBoton.style.backgroundColor = `red`
+    parrafo.appendChild(inputCantidad);
+    parrafo.appendChild(confirmarBoton)
+    confirmarBoton.onclick = () => {
+      let cantidad = parseInt(inputCantidad.value);
+      if (cantidad < oferta.cantidad) {
+        Swal.fire({
+          title: `Esta seguro que quiere eliminar ${inputCantidad.value} ofertas con ID ${oferta.id} del carrito?`,
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "eliminar",
+          color: "red",
+          background: "black",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            let precioPorUnidad = oferta.precio / oferta.cantidad
+            oferta.cantidad -= cantidad;
+            oferta.precio = oferta.cantidad * precioPorUnidad;
+            parrafo.innerText = `ID:${oferta.id}|OFERTA:${oferta.oferta}|SUPERMERCADO:${oferta.supermercado}|PRECIO:$${oferta.precio}|CANTIDAD:${oferta.cantidad}`;
+            localStorage.setItem(`oferta-${oferta.id}`, JSON.stringify(oferta));
+            Swal.fire({
+              title: "Eliminado",
+              text: `Se eliminaron ${inputCantidad.value} ofertas con el  ID ${oferta.id} del carrito con exito!`,
+              icon: "success",
+              color: "red",
+              background: "black",
+            });
+          }
+        });
 
-            } else if (cantidad === oferta.cantidad) {
-                parrafo.style.display = `none`
-                localStorage.removeItem(`oferta-${oferta.id}`);
 
+      } else if (cantidad === oferta.cantidad) {
+        Swal.fire({
+          title: `Esta seguro que quiere eliminar todas las  ofertas con ID ${oferta.id} del carrito?`,
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "eliminar",
+          color: "red",
+          background: "black",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            parrafo.style.display = `none`
+            localStorage.removeItem(`oferta-${oferta.id}`);
+            let index = ofertasAlmacenadas.findIndex(item => item.id === oferta.id);
+
+            // Verificar si se encontró el elemento en ofertasAlmacenadas
+            if (index !== -1) {
+              // Eliminar el elemento del array ofertasAlmacenadas
+              ofertasAlmacenadas.splice(index, 1);
             }
-
-
-
+            Swal.fire({
+              title: "Eliminado",
+              text: `Se eliminaron todas las ofertas con el  ID ${oferta.id} del carrito con exito!`,
+              icon: "success",
+              color: "red",
+              background: "black",
+            });
+          }
+        });
+        if (localStorage.length === 0) {
+          let p = document.createElement("p");
+          p.innerText = `No hay ofertas en el carrito`
+          divMain.appendChild(p)
         }
 
+      } else {
+        Swal.fire({
+          icon: "error",
+          text: "Usted selecciono una cantidad mayor a la comprada!",
+          color: "red",
+          background: "black"
+
+        });
+      }
     }
-
-
-    parrafo.appendChild(botonEliminar);
-    divMain.appendChild(parrafo);
+  }
+  parrafo.appendChild(botonEliminar);
+  divMain.appendChild(parrafo);
 
 }
+
 if (ofertasAlmacenadas.length > 0) {
-    let botonFinalizarCompra = document.createElement("button");
-    botonFinalizarCompra.innerText = `Finalizar compra`;
-    botonFinalizarCompra.style.borderRadius = ".625rem";
-    botonFinalizarCompra.style.backgroundColor = `red`
-    botonFinalizarCompra.style.margin = `auto`
-    botonFinalizarCompra.style.marginBottom = `5px`
-    divMain.appendChild(botonFinalizarCompra)
-    botonFinalizarCompra.onclick = () => {
-        localStorage.clear();
-
-        setTimeout(() => {
-            divMain.innerHTML = "";
-            botonFinalizarCompra.style.display = "none";
-            let p = document.createElement("p");
-            p.innerText = `Gracias por comprar en SUPEROFERTAS-CORDOBA!`
-            divMain.appendChild(p)
-        }, 100);
-
-    }
-} else {
+  let botonFinalizarCompra = document.createElement("button");
+  botonFinalizarCompra.innerText = `Finalizar compra`;
+  botonFinalizarCompra.style.borderRadius = ".625rem";
+  botonFinalizarCompra.style.backgroundColor = `red`
+  botonFinalizarCompra.style.margin = `auto`
+  botonFinalizarCompra.style.marginBottom = `5px`
+  divMain.appendChild(botonFinalizarCompra)
+  botonFinalizarCompra.onclick = () => {
+    localStorage.clear();
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Compra finalizada con exito!",
+      color: "red",
+      background: "black",
+      text: "Gracias por comprar en SUPEROFERTAS-CORDOBA!",
+      showConfirmButton: false,
+      timer: 2000
+    });
+    divMain.innerHTML="";
     let p = document.createElement("p");
     p.innerText = `No hay ofertas en el carrito`
     divMain.appendChild(p)
+  }
+
+
+} else {
+  let p = document.createElement("p");
+  p.innerText = `No hay ofertas en el carrito`
+  divMain.appendChild(p)
+
 }
+
 

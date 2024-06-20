@@ -30,6 +30,7 @@ for (const bebida of ofertasBebidas) {
     let cantidadTexto = document.createElement("p");
     cantidadTexto.innerText = `Cantidad disponible: ${cantidadDisponible}`;
 
+
     let agregarCarrito = document.createElement("button");
     agregarCarrito.className = "btn";
     agregarCarrito.style.backgroundColor = `white`;
@@ -62,60 +63,47 @@ for (const bebida of ofertasBebidas) {
                     cantidad: cantidadTotal,
                 };
                 bebida.cantidad -= cantidad;
-
                 cantidadTexto.innerText = `Cantidad: ${bebida.cantidad}`;
+                if (bebida.cantidad === 0) {
+                    cantidadTexto.innerText = `Sin Stock`;
+                    card.removeChild(agregarCarrito);
+                    img.style.height = `70%`
+
+                }
                 localStorage.setItem(`oferta-${bebida.id}`, JSON.stringify(ofertaConCantidad));
-                precio.style.display = "none";
-                cantidadTexto.style.display = "none"
-                let div = document.createElement("div");
-                div.style.paddingTop = "px";
-                div.style.border = "2px solid black";
-                div.style.borderRadius = ".625rem";
-                div.style.backgroundColor = `green`;
-                let p = document.createElement("p");
-                p.innerText = ` se agregaron ${inputCantidad.value} ofertas con el ID:${bebida.id}  al carrito.`;
-                div.appendChild(p)
-                card.appendChild(div);
-                setTimeout(() => {
-                    precio.style.display = "";
-                    cantidadTexto.style.display = "";
-                    card.removeChild(div);
-                }, 2500);
+                Swal.fire({
+                    width: 400,
+                    position: "center",
+                    icon: "success",
+                    title: ` Se agregaron ${inputCantidad.value} ofertas de la seccion Bebidas con el ID ${bebida.id}  al carrito.`,
+                    color: "red",
+                    background: "black",
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                });
 
             } else if (cantidad > bebida.cantidad) {
-                precio.style.display = "none";
-                cantidadTexto.style.display = "none"
-                let div = document.createElement("div");
-                div.style.paddingTop = "2px";
-                div.style.border = "2px solid black";
-                div.style.borderRadius = ".625rem";
-                div.style.backgroundColor = `yellow`;
-                let p = document.createElement("p");
-                p.innerText = `La cantidad seleccionada es mayor al stock disponible de la oferta: ${bebida.id}`;
-                div.appendChild(p)
-                card.appendChild(div);
-                setTimeout(() => {
-                    precio.style.display = "";
-                    cantidadTexto.style.display = "";
-                    card.removeChild(div);
-                }, 2500);
+                Swal.fire({
+                    width: 400,
+                    height: 200,
+                    color: "red",
+                    background: "black",
+                    icon: "error",
+                    text: `La cantidad seleccionada es mayor al stock disponible de la oferta: ${bebida.id}`,
+                });
             } else {
-                precio.style.display = "none";
-                cantidadTexto.style.display = "none"
-                let div = document.createElement("div");
-                div.style.paddingTop = "2px";
-                div.style.border = "2px solid black";
-                div.style.borderRadius = ".625rem";
-                div.style.backgroundColor = `yellow`;
-                let p = document.createElement("p");
-                p.innerText = "Ingrese una cantidad válida y menor o igual a la disponible.";
-                div.appendChild(p)
-                card.appendChild(div);
-                setTimeout(() => {
-                    precio.style.display = "";
-                    cantidadTexto.style.display = "";
-                    card.removeChild(div);
-                }, 2500);
+                Swal.fire({
+                    width: 400,
+                    title: "Usted debe ingresar una cantidad valida.",
+                    icon: "info",
+                    color: "red",
+                    background: "black",
+                    showCloseButton: true,
+                    focusConfirm: false,
+                    confirmButtonText: ` Aceptar`,
+
+                });
             }
             inputCantidad.style.display = `none`;
             confirmarBoton.style.display = `none`
@@ -200,57 +188,45 @@ for (const almacen of ofertasAlmacen) {
                 };
                 almacen.cantidad -= cantidad;
                 cantidadTexto.innerText = `Cantidad: ${almacen.cantidad}`;
+                if (almacen.cantidad === 0) {
+                    cantidadTexto.innerText = `Sin Stock`;
+                    card.removeChild(agregarCarrito);
+                    img.style.height = `70%`
+                }
+
                 localStorage.setItem(`oferta-${almacen.id}`, JSON.stringify(ofertaConCantidad));
-                precio.style.display = "none";
-                cantidadTexto.style.display = "none"
-                let div = document.createElement("div");
-                div.style.paddingTop = "px";
-                div.style.border = "2px solid black";
-                div.style.borderRadius = ".625rem";
-                div.style.backgroundColor = `green`;
-                let p = document.createElement("p");
-                p.innerText = ` se agregaron ${inputCantidad.value} ofertas con el ID:${almacen.id}  al carrito.`;
-                div.appendChild(p)
-                card.appendChild(div);
-                setTimeout(() => {
-                    precio.style.display = "";
-                    cantidadTexto.style.display = "";
-                    card.removeChild(div);
-                }, 2500);
+                Swal.fire({
+                    width: 400,
+                    position: "center",
+                    icon: "success",
+                    title: ` Se agregaron ${inputCantidad.value} ofertas de la seccion Almacen con el ID ${almacen.id}  al carrito.`,
+                    color: "red",
+                    background: "black",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
             } else if (cantidad > almacen.cantidad) {
-                precio.style.display = "none";
-                cantidadTexto.style.display = "none"
-                let div = document.createElement("div");
-                div.style.paddingTop = "2px";
-                div.style.border = "2px solid black";
-                div.style.borderRadius = ".625rem";
-                div.style.backgroundColor = `yellow`;
-                let p = document.createElement("p");
-                p.innerText = `La cantidad seleccionada es mayor al stock disponible de la oferta: ${almacen.id}`;
-                div.appendChild(p)
-                card.appendChild(div);
-                setTimeout(() => {
-                    precio.style.display = "";
-                    cantidadTexto.style.display = "";
-                    card.removeChild(div);
-                }, 2500);
+                Swal.fire({
+                    width: 400,
+                    height: 200,
+                    color: "red",
+                    background: "black",
+                    icon: "error",
+                    text: `La cantidad seleccionada es mayor al stock disponible de la oferta: ${almacen.id}`,
+                });
             } else {
-                precio.style.display = "none";
-                cantidadTexto.style.display = "none"
-                let div = document.createElement("div");
-                div.style.paddingTop = "2px";
-                div.style.border = "2px solid black";
-                div.style.borderRadius = ".625rem";
-                div.style.backgroundColor = `yellow`;
-                let p = document.createElement("p");
-                p.innerText = "Ingrese una cantidad válida y menor o igual a la disponible.";
-                div.appendChild(p)
-                card.appendChild(div);
-                setTimeout(() => {
-                    precio.style.display = "";
-                    cantidadTexto.style.display = "";
-                    card.removeChild(div);
-                }, 2500);
+                Swal.fire({
+                    width: 400,
+                    title: "Usted debe ingresar una cantidad valida.",
+                    icon: "info",
+                    color: "red",
+                    background: "black",
+                    showCloseButton: true,
+                    focusConfirm: false,
+                    confirmButtonText: ` Aceptar`,
+
+                });
             }
             inputCantidad.style.display = `none`;
             confirmarBoton.style.display = `none`
@@ -334,57 +310,44 @@ for (const limpieza of ofertasLimpieza) {
                 };
                 limpieza.cantidad -= cantidad;
                 cantidadTexto.innerText = `Cantidad: ${limpieza.cantidad}`;
+                if (limpieza.cantidad === 0) {
+                    cantidadTexto.innerText = `Sin Stock`;
+                    card.removeChild(agregarCarrito);
+                    img.style.height = `70%`
+                }
                 localStorage.setItem(`oferta-${limpieza.id}`, JSON.stringify(ofertaConCantidad));
-                precio.style.display = "none";
-                cantidadTexto.style.display = "none"
-                let div = document.createElement("div");
-                div.style.paddingTop = "px";
-                div.style.border = "2px solid black";
-                div.style.borderRadius = ".625rem";
-                div.style.backgroundColor = `green`;
-                let p = document.createElement("p");
-                p.innerText = ` se agregaron ${inputCantidad.value} ofertas con el ID:${limpieza.id}  al carrito.`;
-                div.appendChild(p)
-                card.appendChild(div);
-                setTimeout(() => {
-                    precio.style.display = "";
-                    cantidadTexto.style.display = "";
-                    card.removeChild(div);
-                }, 2500);
+                Swal.fire({
+                    width: 400,
+                    position: "center",
+                    icon: "success",
+                    title: ` Se agregaron ${inputCantidad.value} ofertas de la seccion Limpieza con el ID ${limpieza.id}  al carrito.`,
+                    color: "red",
+                    background: "black",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
             } else if (cantidad > limpieza.cantidad) {
-                precio.style.display = "none";
-                cantidadTexto.style.display = "none"
-                let div = document.createElement("div");
-                div.style.paddingTop = "2px";
-                div.style.border = "2px solid black";
-                div.style.borderRadius = ".625rem";
-                div.style.backgroundColor = `yellow`;
-                let p = document.createElement("p");
-                p.innerText = `La cantidad seleccionada es mayor al stock disponible de la oferta: ${limpieza.id}`;
-                div.appendChild(p)
-                card.appendChild(div);
-                setTimeout(() => {
-                    precio.style.display = "";
-                    cantidadTexto.style.display = "";
-                    card.removeChild(div);
-                }, 2500);
+                Swal.fire({
+                    width: 400,
+                    height: 200,
+                    color: "red",
+                    background: "black",
+                    icon: "error",
+                    text: `La cantidad seleccionada es mayor al stock disponible de la oferta: ${limpieza.id}`,
+                });
             } else {
-                precio.style.display = "none";
-                cantidadTexto.style.display = "none"
-                let div = document.createElement("div");
-                div.style.paddingTop = "2px";
-                div.style.border = "2px solid black";
-                div.style.borderRadius = ".625rem";
-                div.style.backgroundColor = `yellow`;
-                let p = document.createElement("p");
-                p.innerText = "Ingrese una cantidad válida y menor o igual a la disponible.";
-                div.appendChild(p)
-                card.appendChild(div);
-                setTimeout(() => {
-                    precio.style.display = "";
-                    cantidadTexto.style.display = "";
-                    card.removeChild(div);
-                }, 2500);
+                Swal.fire({
+                    width: 400,
+                    title: "Usted debe ingresar una cantidad valida.",
+                    icon: "info",
+                    color: "red",
+                    background: "black",
+                    showCloseButton: true,
+                    focusConfirm: false,
+                    confirmButtonText: ` Aceptar`,
+
+                });
             }
             inputCantidad.style.display = `none`;
             confirmarBoton.style.display = `none`
