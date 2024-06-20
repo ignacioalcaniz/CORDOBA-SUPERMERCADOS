@@ -107,11 +107,8 @@ for (const oferta of ofertasAlmacenadas) {
           if (result.isConfirmed) {
             parrafo.style.display = `none`
             localStorage.removeItem(`oferta-${oferta.id}`);
-            let index = ofertasAlmacenadas.findIndex(item => item.id === oferta.id);
-
-            // Verificar si se encontró el elemento en ofertasAlmacenadas
+            let index = ofertasAlmacenadas.findIndex(item => item.id === oferta.id)
             if (index !== -1) {
-              // Eliminar el elemento del array ofertasAlmacenadas
               ofertasAlmacenadas.splice(index, 1);
             }
             Swal.fire({
@@ -123,11 +120,6 @@ for (const oferta of ofertasAlmacenadas) {
             });
           }
         });
-        if (localStorage.length === 0) {
-          let p = document.createElement("p");
-          p.innerText = `No hay ofertas en el carrito`
-          divMain.appendChild(p)
-        }
 
       } else {
         Swal.fire({
@@ -172,11 +164,18 @@ if (ofertasAlmacenadas.length > 0) {
   }
 
 
-} else {
+}else if(ofertasAlmacenadas.length===0){
+
+    let p = document.createElement("p");
+    p.innerText = `No hay ofertas en el carrito`
+    divMain.appendChild(p)
+} 
+else {
   let p = document.createElement("p");
   p.innerText = `No hay ofertas en el carrito`
   divMain.appendChild(p)
 
 }
+
 
 
