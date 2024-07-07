@@ -1,6 +1,8 @@
 .footer{
     background-color: red;
     border-top: 2px solid white;
+    font-family: "Varela Round", sans-serif;
+    font-size: 18px;
   ul{
     li{
         list-style: none;
@@ -28,5 +30,11 @@
         }
     }
   }
-   
+   .inicio{
+    &:hover{
+        transform: scale(1.1);
+        filter: drop-shadow(10px 10px black);
+        
+    }
+   }
 }

@@ -1,0 +1,204 @@
+[
+    {
+        "id": 1,
+        "supermercado": "hiper libertad",
+        "nombre": "cerveza Brahma",
+        "oferta_tipo": "bebidas",
+        "precio": 2500,
+        "imagen": "./assets/img/bebida1.jpg",
+        "cantidad": 10,
+        "descripcion": "Botella 1,5 L",
+        "logo":"./assets/img/logohiper.jpg"
+    },
+    {
+        "id": 2,
+        "supermercado": "super mami",
+        "nombre": "cerveza Brahma",
+        "oferta_tipo": "bebidas",
+        "precio": 8500,
+        "imagen": "./assets/img/bebida2.jpg",
+        "cantidad": 7,
+        "descripcion": "Six pack",
+        "logo":"./assets/img/logosupermami.jpeg"
+      
+     
+    },
+    {
+        "id": 3,
+        "supermercado": "vea",
+        "nombre": "cerveza Quilmes",
+        "oferta_tipo": "bebidas",
+        "precio": 7500,
+        "imagen": "./assets/img/bebidass3.jpg",
+        "cantidad": 9,
+        "descripcion": "Six pack",
+        "logo":"./assets/img/logovea.png"
+       
+    },
+    {
+        "id": 4,
+        "supermercado": "disco",
+        "nombre": " vino Estancia Mendoza",
+        "oferta_tipo": "bebidas",
+        "precio": 4500,
+        "imagen": "./assets/img/bebida4.jpg",
+        "cantidad": 5,
+        "descripcion": "Botella 1,5 L",
+        "logo":"./assets/img/logodisco.png"
+    },
+    {
+        "id": 5,
+        "supermercado": "carrefour",
+        "nombre": "Gaseosa Coca-Cola",
+        "oferta_tipo": "bebidas",
+        "precio": 1500,
+        "imagen": "./assets/img/bebida5.jpg",
+        "cantidad": 7,
+        "descripcion": "Botella 2,5 L",
+        "logo":"./assets/img/logocarrefour.jpg"
+       
+    },
+    {
+        "id": 6,
+        "supermercado": "carrefour",
+        "nombre": "Gaseosa Crush Limon",
+        "oferta_tipo": "bebidas",
+        "precio": 1200,
+        "imagen": "./assets/img/bebida6.jpg",
+        "cantidad": 8,
+        "descripcion": "Botella 2,5 L",
+        "logo":"./assets/img/logocarrefour.jpg"
+    },
+    {
+        "id": 7,
+        "supermercado": "super mami",
+        "nombre": "Aceite Cocinero ",
+        "oferta_tipo": "almacen",
+        "precio": 1900,
+        "imagen": "./assets/img/almacen1.jpg",
+        "cantidad": 5,
+        "descripcion": "Botella 1,5 L",
+        "logo":"./assets/img/logosupermami.jpeg"
+    },
+    {
+        "id": 8,
+        "supermercado": "vea",
+        "nombre": "Aceite Cocinero Extra Virgen",
+        "oferta_tipo": "almacen",
+        "precio": 4500,
+        "imagen": "./assets/img/almacen2.jpg",
+        "cantidad": 10,
+        "descripcion": "Botella 1,5 L",
+        "logo":"./assets/img/logovea.png"
+    },
+    {
+        "id": 9,
+        "supermercado": "disco",
+        "nombre": "Harina Graciela Real",
+        "oferta_tipo": "almacen",
+        "precio": 800,
+        "imagen": "./assets/img/almacen3.jpg",
+        "cantidad": 10,
+        "descripcion": "paquete 1kg",
+        "logo":"./assets/img/logodisco.png"
+    },
+    {
+        "id": 10,
+        "supermercado": "disco",
+        "nombre": "Sal fina Dos Anclas",
+        "oferta_tipo": "almacen",
+        "precio": 1000,
+        "imagen": "./assets/img/almacen4.jpg",
+        "cantidad": 4,
+        "descripcion": "paquete 500g",
+        "logo":"./assets/img/logodisco.png"
+    },
+    {
+        "id": 11,
+        "supermercado": "carrefour",
+        "nombre": " soja Egran ",
+        "oferta_tipo": "almacen",
+        "precio": 1200,
+        "imagen": "./assets/img/almacen5.jpg",
+        "cantidad": 5,
+        "descripcion": "paquete 500g",
+        "logo":"./assets/img/logocarrefour.jpg"
+    },
+    {
+        "id": 12,
+        "supermercado": "vea",
+        "nombre": "Fideos Luchetti",
+        "oferta_tipo": "almacen",
+        "precio": 750,
+        "imagen": "./assets/img/almacen6.jpg",
+        "cantidad": 5,
+        "descripcion": "Paquete 500g",
+        "logo":"./assets/img/logovea.png"
+    },
+    {
+        "id": 13,
+        "supermercado": "hiper libertad",
+        "nombre": "Baño ultra rapido",
+        "oferta_tipo": "limpieza",
+        "precio": 5500,
+        "imagen": "./assets/img/limpieza1.jpg",
+        "cantidad": 4,
+        "descripcion": "Botella 5 L",
+         "logo":"./assets/img/logohiper.jpg"
+    },
+    {
+        "id": 14,
+        "supermercado": "hiper libertad",
+        "nombre": "Baño Procenex",
+        "oferta_tipo": "limpieza",
+        "precio": 1500,
+        "imagen": "./assets/img/limpieza2.jpg",
+        "cantidad": 5,
+        "descripcion": "salche 820 ml",
+         "logo":"./assets/img/logohiper.jpg"
+    },
+    {
+        "id": 15,
+        "supermercado": "vea",
+        "nombre": "limpiador procenex",
+        "oferta_tipo": "limpieza",
+        "precio": 2300,
+        "imagen": "./assets/img/limpieza3.jpg",
+        "cantidad": 7,
+        "descripcion": "Botella 900ml",
+        "logo":"./assets/img/logovea.png"
+    },
+    {
+        "id": 16,
+        "supermercado": "super mami",
+        "nombre": "Lavandina Ayudin",
+        "oferta_tipo": "limpieza",
+        "precio": 3500,
+        "imagen": "./assets/img/limpieza4.jpg",
+        "cantidad": 4,
+        "descripcion": "Botella 4 L",
+        "logo":"./assets/img/logosupermami.jpeg"
+    },
+    {
+        "id": 17,
+        "supermercado": "carrefour",
+        "nombre": " pomanda cobra negra  ",
+        "oferta_tipo": "limpieza",
+        "precio": 3300,
+        "imagen": "./assets/img/limpieza5.jpg",
+        "cantidad": 6,
+        "descripcion": " pomada de 30g",
+        "logo":"./assets/img/logocarrefour.jpg"
+    },
+    {
+        "id": 18,
+        "supermercado": "disco",
+        "nombre": "aerosol Raid",
+        "oferta_tipo": "limpieza",
+        "precio": 4500,
+        "imagen": "./assets/img/limpieza6.jpg",
+        "cantidad": 10,
+        "descripcion": "Botella 380 cm",
+        "logo":"./assets/img/logodisco.png"
+    }
+]

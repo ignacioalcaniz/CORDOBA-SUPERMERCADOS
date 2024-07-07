@@ -6,27 +6,47 @@ navBar.classList = `navbar navbar-expand-lg mt-1 w-100 mb-4 `
 let body = document.getElementsByTagName("body")
 body[0].style.backgroundColor = `black`;
 
-const ofertasBebidas = [{ id: 1, oferta: "bebidas", supermercado: "hiper libertad", precio: 2500, cantidad: 5 },
-{ id: 2, oferta: "bebidas", supermercado: "super mami", precio: 8500, cantidad: 5 },
-{ id: 3, oferta: "bebidas", supermercado: "vea", precio: 7500, cantidad: 5 },
-{ id: 4, oferta: "bebidas", supermercado: "disco", precio: 4500, cantidad: 2 },
-{ id: 5, oferta: "bebidas", supermercado: "carrefour", precio: 1700, cantidad: 5 },
-{ id: 6, oferta: "bebidas", supermercado: "carrefour", precio: 1500, cantidad: 7 },]
 
-const ofertasAlmacen = [{ id: 7, oferta: "almacen", supermercado: "super mami", precio: 1200, cantidad: 5 },
-{ id: 8, oferta: "almacen", supermercado: "vea", precio: 3000, cantidad: 6 },
-{ id: 9, oferta: "almacen", supermercado: "disco", precio: 800, cantidad: 5 },
-{ id: 10, oferta: "almacen", supermercado: "disco", precio: 1000, cantidad: 3 },
-{ id: 11, oferta: "almacen", supermercado: "carrefour", precio: 1200, cantidad: 3 },
-{ id: 12, oferta: "almacen", supermercado: "vea", precio: 750, cantidad: 3 },];
+let carrusel = document.createElement("div")
+carrusel.style.border = `2px solid red`;
+carrusel.style.width = `100%`;
+carrusel.style.height = `250px`
+carrusel.style.backgroundColor = `white`
+carrusel.style.borderRadius = `5px`
+carrusel.className = `carrusel`
 
-const ofertasLimpieza = [{ id: 13, oferta: "limpieza", supermercado: "hiper libertad", precio: 4500, cantidad: 5 },
-{ id: 14, oferta: "limpieza", supermercado: "hiper libertad", precio: 1500, cantidad: 5 },
-{ id: 15, oferta: "limpieza", supermercado: "vea", precio: 2500, cantidad: 5 },
-{ id: 16, oferta: "limpieza", supermercado: "super mami", precio: 3200, cantidad: 4 },
-{ id: 17, oferta: "limpieza", supermercado: "carrefour", precio: 2200, cantidad: 4 },
-{ id: 18, oferta: "limpieza", supermercado: "disco", precio: 2800, cantidad: 3 },
-]
+
+header[0].appendChild(carrusel)
+let imagenesSuper = ["./assets/img/dino.jpeg", "./assets/img/hiperlibertad.jpeg", "./assets/img/vea.jpg", "./assets/img/carrefour.webp", "./assets/img/disco.jpg"];
+let descripcionImagenes = ["En dino alto verde:20% de descuento  con  tarjeta cordobesa y naranja", "Hiper Libertad:30% de descuento con tarjeta cordobesa y naranja", "Vea:10% de descuento con tarjeta visa,mastercard y naranja", "Carrefour:15% de descuento con tarjeta cordobesa y visa", "Disco:30% de descuento con tarjeta visa y mastercard",]
+const imgSuper = document.createElement("img");
+imgSuper.src = imagenesSuper[0];
+imgSuper.className = `imgCarrusel`;
+carrusel.appendChild(imgSuper);
+
+const parrafoImagen = document.createElement("p");
+parrafoImagen.style.color = `red`;
+
+parrafoImagen.textContent = descripcionImagenes[0];
+parrafoImagen.className = `parrafoImagen`;
+parrafoImagen.setAttribute('data-aos', 'fade-up');
+carrusel.appendChild(parrafoImagen);
+
+
+
+let indiceActualSuper = 0;
+function pasarImagenes() {
+    indiceActualSuper++
+    if (indiceActualSuper >= imagenesSuper.length) {
+        indiceActualSuper = 0;
+    }
+    imgSuper.src = imagenesSuper[indiceActualSuper];
+    parrafoImagen.textContent = descripcionImagenes[indiceActualSuper];
+    setTimeout(pasarImagenes, 4000);
+
+}
+pasarImagenes();
+
 
 let cartas = document.getElementsByClassName("carta");
 for (let i = 0; i < cartas.length; i++) {

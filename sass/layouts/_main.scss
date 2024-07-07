@@ -13,20 +13,36 @@ main{
    
    }
    #OfertaBebida{
+      font-family: "Contrail One", sans-serif;
       &:hover{
          box-shadow: 10px 10px  red;
+         
    
       }
    }
    #OfertaAlmacen{
+      font-family: "Contrail One", sans-serif;
       &:hover{
          box-shadow: 10px 10px  red;
    
       }
    }
    #OfertaLimpieza{
+      font-family: "Contrail One", sans-serif;
       &:hover{
          box-shadow: 10px 10px  red;
+   
+      }
+   }
+   .botonFinalizarCompra{
+      &:hover{
+         box-shadow: 3px 3px  red;
+   
+      }
+   }
+   .botonEliminar{
+      &:hover{
+         box-shadow: 3px 3px  red;
    
       }
    }
